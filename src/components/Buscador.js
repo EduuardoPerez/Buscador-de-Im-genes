@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
+import Error from './Error';
 
 function Buscador(){
 
   const[terminoBusqueda, guardarTerminoBusqueda] = useState('');
   const[error, guardarError] = useState('');
 
-  const buscarImagen = e => () {
+  const buscarImagen = e => {
     e.preventDefault();
 
     // Validar
@@ -39,6 +40,7 @@ function Buscador(){
           />
         </div>
       </div>
+      {(error) ? <Error mensaje="Agrega una palabra para realizar la búsqueda"/> : null }
     </form>
   )
 }
